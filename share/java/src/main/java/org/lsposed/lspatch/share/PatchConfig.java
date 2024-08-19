@@ -10,7 +10,7 @@ public class PatchConfig {
     public final int sigBypassLevel;
     public final String originalSignature;
     public final String appComponentFactory;
-    public final LSPConfig lspConfig;
+    public LSPConfig lspConfig;
 
     public PatchConfig(
             boolean useManager,

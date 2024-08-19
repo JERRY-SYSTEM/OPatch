@@ -25,6 +25,7 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.result.ResultBackNavigator
 import kotlinx.parcelize.Parcelize
+import org.lsposed.lspatch.GlobalUserHandler
 import org.lsposed.lspatch.R
 import org.lsposed.lspatch.ui.component.AppItem
 import org.lsposed.lspatch.ui.component.SearchAppBar

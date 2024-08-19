@@ -18,7 +18,7 @@ import java.util.Objects;
 @SuppressLint("UnsafeDynamicallyLoadedCode")
 public class LSPAppComponentFactoryStub extends AppComponentFactory {
 
-    private static final String TAG = "LSPatch-MetaLoader";
+    private static final String TAG = "OPatch-MetaLoader";
     private static final Map<String, String> archToLib = new HashMap<String, String>(4);
 
     public static byte[] dex;
@@ -29,6 +29,8 @@ public class LSPAppComponentFactoryStub extends AppComponentFactory {
             archToLib.put("arm64", "arm64-v8a");
             archToLib.put("x86", "x86");
             archToLib.put("x86_64", "x86_64");
+
+            Log.i(TAG, "App ClassLoader:" + LSPAppComponentFactoryStub.class.getClassLoader());
 
             var cl = Objects.requireNonNull(LSPAppComponentFactoryStub.class.getClassLoader());
             Class<?> VMRuntime = Class.forName("dalvik.system.VMRuntime");

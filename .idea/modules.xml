@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/apkzlib/LSPatch.apkzlib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/apkzlib/LSPatch.apkzlib.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/patch-loader/LSPatch.patch-loader.main.iml" filepath="$PROJECT_DIR$/.idea/modules/patch-loader/LSPatch.patch-loader.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/apkzlib/OPatch.apkzlib.LSPatch.apkzlib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/apkzlib/OPatch.apkzlib.LSPatch.apkzlib.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/apkzlib/apkzlib.LSPatch.apkzlib.main.iml" filepath="$PROJECT_DIR$/.idea/modules/apkzlib/apkzlib.LSPatch.apkzlib.main.iml" />
     </modules>

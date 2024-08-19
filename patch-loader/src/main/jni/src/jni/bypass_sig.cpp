@@ -20,7 +20,6 @@ namespace lspd {
             int, __openat,
             (int fd, const char* pathname, int flag, int mode), {
                 if (pathname == apkPath) {
-                    LOGD("redirect openat");
                     return backup(fd, redirectPath.c_str(), flag, mode);
                 }
                 return backup(fd, pathname, flag, mode);
@@ -37,8 +36,6 @@ namespace lspd {
         lsplant::JUTFString str2(env, cacheApkPath);
         apkPath = str1.get();
         redirectPath = str2.get();
-        LOGD("apkPath %s", apkPath.c_str());
-        LOGD("redirectPath %s", redirectPath.c_str());
     }
 
     static JNINativeMethod gMethods[] = {

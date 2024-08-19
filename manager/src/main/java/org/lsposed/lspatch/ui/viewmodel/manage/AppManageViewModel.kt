@@ -16,6 +16,7 @@ import kotlinx.coroutines.withContext
 import org.lsposed.lspatch.Patcher
 import org.lsposed.lspatch.lspApp
 import org.lsposed.lspatch.share.Constants
+import org.lsposed.lspatch.share.LSPConfig
 import org.lsposed.lspatch.share.PatchConfig
 import org.lsposed.lspatch.ui.viewstate.ProcessingState
 import org.lsposed.lspatch.util.LSPPackageManager
@@ -42,7 +43,8 @@ class AppManageViewModel : ViewModel() {
             appInfo.app.metaData?.getString("lspatch")?.let {
                 val json = Base64.decode(it, Base64.DEFAULT).toString(Charsets.UTF_8)
                 Log.d(TAG, "Read patched config: $json")
-                appInfo to Gson().fromJson(json, PatchConfig::class.java)
+                val config = Gson().fromJson(json, PatchConfig::class.java)
+                if(config?.lspConfig == null) null else (appInfo to config)
             }
         }.also {
             Log.d(TAG, "Loaded ${it.size} patched apps")

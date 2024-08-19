@@ -10,7 +10,7 @@ public class LSPConfig {
     public int CORE_VERSION_CODE;
     public String CORE_VERSION_NAME;
 
-    private LSPConfig() {
+    public LSPConfig() {
     }
 
     static {

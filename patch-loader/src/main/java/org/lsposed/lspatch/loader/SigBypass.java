@@ -122,7 +122,7 @@ public class SigBypass {
                     if (packageName.equals(param.args[0])) {
                         ApplicationInfo info = (ApplicationInfo) param.getResult();
                         info.sourceDir = sourceDir;
-                        info.publicSourceDir = sourceDir;
+                        info.publicSourceDir = resourcesDir;
                     }
                 }
             });
@@ -132,7 +132,7 @@ public class SigBypass {
                     if (packageName.equals(param.args[0])) {
                         ApplicationInfo info = (ApplicationInfo) param.getResult();
                         info.sourceDir = sourceDir;
-                        info.publicSourceDir = sourceDir;
+                        info.publicSourceDir = resourcesDir;
                     }
                 }
             });
@@ -149,8 +149,9 @@ public class SigBypass {
         if (sigBypassLevel >= Constants.SIGBYPASS_LV_PM_OPENAT) {
             String cacheApkPath;
             try (ZipFile sourceFile = new ZipFile(context.getPackageResourcePath())) {
-                cacheApkPath = context.getCacheDir() + "/lspatch/origin/" + sourceFile.getEntry(ORIGINAL_APK_ASSET_PATH).getCrc() + ".apk";
+                cacheApkPath = context.getCacheDir() + "/opatch/origin/" + sourceFile.getEntry(ORIGINAL_APK_ASSET_PATH).getCrc() + ".apk";
             }
+            Log.i(TAG, "Replace Path: " + context.getPackageResourcePath() + " -> " + cacheApkPath);
             org.lsposed.lspd.nativebridge.SigBypass.enableOpenatHook(context.getPackageResourcePath(), cacheApkPath);
         }
     }

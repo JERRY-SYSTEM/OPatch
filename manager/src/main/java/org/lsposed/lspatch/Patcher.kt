@@ -1,5 +1,6 @@
 package org.lsposed.lspatch
 
+import android.util.Log
 import androidx.core.net.toUri
 import androidx.documentfile.provider.DocumentFile
 import kotlinx.coroutines.Dispatchers
@@ -54,28 +55,32 @@ object Patcher {
     suspend fun patch(logger: Logger, options: Options) {
         withContext(Dispatchers.IO) {
             LSPatch(logger, *options.toStringArray()).doCommandLine()
-
-            val uri = Configs.storageDirectory?.toUri()
-                ?: throw IOException("Uri is null")
-            val root = DocumentFile.fromTreeUri(lspApp, uri)
-                ?: throw IOException("DocumentFile is null")
-            root.listFiles().forEach {
-                if (it.name?.endsWith(Constants.PATCH_FILE_SUFFIX) == true) it.delete()
-            }
-            lspApp.tmpApkDir.walk()
-                .filter { it.name.endsWith(Constants.PATCH_FILE_SUFFIX) }
-                .forEach { apk ->
-                    val file = root.createFile("application/vnd.android.package-archive", apk.name)
-                        ?: throw IOException("Failed to create output file")
-                    val output = lspApp.contentResolver.openOutputStream(file.uri)
-                        ?: throw IOException("Failed to open output stream")
-                    output.use {
-                        apk.inputStream().use { input ->
-                            input.copyTo(output)
-                        }
-                    }
+            try {
+                val uri = Configs.storageDirectory?.toUri()
+                    ?: throw IOException("Uri is null")
+                val root = DocumentFile.fromTreeUri(lspApp, uri)
+                    ?: throw IOException("DocumentFile is null")
+                root.listFiles().forEach {
+                    if (it.name?.endsWith(Constants.PATCH_FILE_SUFFIX) == true) it.delete()
                 }
-            logger.i("Patched files are saved to ${root.uri.lastPathSegment}")
+                lspApp.tmpApkDir.walk()
+                    .filter { it.name.endsWith(Constants.PATCH_FILE_SUFFIX) }
+                    .forEach { apk ->
+                        val file = root.createFile("application/vnd.android.package-archive", apk.name)
+                            ?: throw IOException("Failed to create output file")
+                        val output = lspApp.contentResolver.openOutputStream(file.uri)
+                            ?: throw IOException("Failed to open output stream")
+                        output.use {
+                            apk.inputStream().use { input ->
+                                input.copyTo(output)
+                            }
+                        }
+
+                    }
+                logger.i("Patched files are saved to ${root.uri.lastPathSegment}")
+            }catch (e: Exception){
+                logger.e("Failed to sign the patched apk" + Log.getStackTraceString(e) + "\n")
+            }
         }
     }
 }

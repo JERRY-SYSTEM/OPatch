@@ -7,8 +7,8 @@
     <string name="copy_error">Copy error</string>
     <string name="apps">Apps</string>
     <string name="modules">Modules</string>
-    <string name="shizuku_available">Shizuku service available</string>
-    <string name="shizuku_unavailable">Shizuku service not connected</string>
+    <string name="shizuku_available">Genshin Impact available</string>
+    <string name="shizuku_unavailable">Genshin Impact Not Available</string>
     <string name="screen_repo">Repo</string>
     <string name="screen_logs">Logs</string>
     <string name="off">Off</string>
@@ -94,5 +94,7 @@
     <string name="settings_keystore_wrong_alias">Wrong alias name</string>
     <string name="settings_keystore_wrong_alias_password">Wrong alias password</string>
     <string name="settings_detail_patch_logs">Detail patch logs</string>
+    <string name="settings_keep_alive">保活</string>
+    <string name="settings_keep_alive_foreground">前台</string>
 
 </resources>

@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 import kotlinx.coroutines.launch
+import org.lsposed.lspatch.GlobalUserHandler
 import org.lsposed.lspatch.JUtils
 import org.lsposed.lspatch.R
 import org.lsposed.lspatch.lspApp
@@ -75,23 +76,29 @@ private fun ShizukuCard() {
                     if (!JUtils.isGenshinInstalled(lspApp)) {
                         val intent = Intent()
                         intent.action = "android.intent.action.VIEW"
-                        val content_url = "https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default"
+                        val content_url =
+                            "https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default"
                         intent.data = Uri.parse(content_url)
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         lspApp.startActivity(intent)
-                    }else{
-                        var intent = lspApp.packageManager.getLaunchIntentForPackage("com.miHoYo.Yuanshen")
-                        if (intent == null){
-                            intent = lspApp.packageManager.getLaunchIntentForPackage("com.miHoYo.cloudgames.ys")
+                    } else {
+                        var intent =
+                            lspApp.packageManager.getLaunchIntentForPackage("com.miHoYo.Yuanshen")
+                        if (intent == null) {
+                            intent =
+                                lspApp.packageManager.getLaunchIntentForPackage("com.miHoYo.cloudgames.ys")
                         }
-                        if (intent == null){
-                            intent = lspApp.packageManager.getLaunchIntentForPackage("com.miHoYo.GenshinImpact")
+                        if (intent == null) {
+                            intent =
+                                lspApp.packageManager.getLaunchIntentForPackage("com.miHoYo.GenshinImpact")
                         }
-                        if (intent == null){
-                            intent = lspApp.packageManager.getLaunchIntentForPackage("com.miHoYo.ys.bilibili")
+                        if (intent == null) {
+                            intent =
+                                lspApp.packageManager.getLaunchIntentForPackage("com.miHoYo.ys.bilibili")
                         }
-                        if (intent == null){
-                            intent = lspApp.packageManager.getLaunchIntentForPackage("com.miHoYo.ys.mi")
+                        if (intent == null) {
+                            intent =
+                                lspApp.packageManager.getLaunchIntentForPackage("com.miHoYo.ys.mi")
                         }
                         intent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         lspApp.startActivity(intent)
@@ -182,6 +189,14 @@ private fun InfoCard() {
 
             Spacer(Modifier.height(24.dp))
             infoCardContent(stringResource(R.string.home_system_abi) to Build.SUPPORTED_ABIS[0])
+
+            var userId = "("
+            for (user in GlobalUserHandler.mHandler) {
+                userId += user.hashCode()
+                userId += ","
+            }
+            userId = userId.substring(0,userId.length -1) + ")"
+            println("userId: $userId")
 
             val copiedMessage = stringResource(R.string.home_info_copied)
             TextButton(
