@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="$PROJECT_DIR$/../../Bin/gradle-8.0.2" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/apkzlib" />
+            <option value="$PROJECT_DIR$/core/core" />
+            <option value="$PROJECT_DIR$/core/hiddenapi/bridge" />
+            <option value="$PROJECT_DIR$/core/hiddenapi/stubs" />
+            <option value="$PROJECT_DIR$/core/services/daemon-service" />
+            <option value="$PROJECT_DIR$/core/services/manager-service" />
+            <option value="$PROJECT_DIR$/core/services/xposed-service/interface" />
+            <option value="$PROJECT_DIR$/hiddenapi" />
+            <option value="$PROJECT_DIR$/jar" />
+            <option value="$PROJECT_DIR$/manager" />
+            <option value="$PROJECT_DIR$/meta-loader" />
+            <option value="$PROJECT_DIR$/patch" />
+            <option value="$PROJECT_DIR$/patch-loader" />
+            <option value="$PROJECT_DIR$/services" />
+            <option value="$PROJECT_DIR$/services/xposed-service" />
+            <option value="$PROJECT_DIR$/share" />
+            <option value="$PROJECT_DIR$/share/android" />
+            <option value="$PROJECT_DIR$/share/java" />
+          </set>
+        </option>
+        <option name="resolveExternalAnnotations" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

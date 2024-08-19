@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/core/external/cxx" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/core/external/dobby" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/core/external/fmt" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/core/external/lsplant" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/core/external/lsplant/docs/doxygen-awesome-css" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/core/external/lsplant/lsplant/src/main/jni/external/dex_builder" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/core/external/lsplant/lsplant/src/main/jni/external/dex_builder/external/abseil" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/core/external/lsplant/lsplant/src/main/jni/external/dex_builder/external/parallel_hashmap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libxposed/api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/libxposed/service" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/patch/libs/manifest-editor" vcs="Git" />
+  </component>
+</project>

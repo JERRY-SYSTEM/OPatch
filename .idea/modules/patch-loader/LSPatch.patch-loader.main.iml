@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$/../../../core">
+      <sourceFolder url="file://$MODULE_DIR$/../../../core" type="native-Source-root" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../../patch-loader/src/main" dumb="true">
+      <sourceFolder url="file://$MODULE_DIR$/../../../patch-loader/src/main/jni" type="native-Source-root" />
+    </content>
+  </component>
+</module>
